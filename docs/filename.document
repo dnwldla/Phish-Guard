@@ -1,0 +1,134 @@
+# 1. About the Project
+•	Project Name: PhishGuard
+•	Objective:
+o	Designed to prevent major crimes in modern society, such as voice phishing.
+o	Provides real-time alerts to users by analyzing ongoing calls.
+•	Core Issues:
+o	Traditional spam filters rely solely on blacklists and fail to detect risks during live calls.
+o	Users are often emotionally overwhelmed, leading to increased vulnerability.
+•	Features of the Solution:
+o	Combines STT (Speech-to-Text) technology and machine learning to convert and analyze voice data into text.
+o	Utilizes Natural Language Processing (NLP) to understand the context and intent of sentences.
+o	Detects suspicious keywords and patterns, issuing real-time warnings for potential phishing calls.
+•	Expected Benefits:
+o	Helps users quickly understand and respond to phishing attempts.
+o	Stores call content as evidence for legal use if needed.
+________________________________________
+# 2. Getting Started
+•	Installation:
+o	Install Python packages: pip install -r requirements.txt
+o	Includes instructions for installing Flask and other dependencies.
+•	Prerequisites:
+o	Python 3.9 or higher.
+o	Google Cloud Speech-to-Text API and OpenAI API keys.
+o	FFmpeg installation (required for audio file conversion).
+•	Google Cloud Setup:
+o	Create a project on Google Cloud Console.
+o	Enable the Speech-to-Text API.
+o	Download the service account key (JSON file) and set it as an environment variable.
+•	Setup Guide:
+o	Connect the JSON credential file to the GOOGLE_APPLICATION_CREDENTIALS environment variable.
+o	Run the Flask server using: python app.py.
+o	Access the application locally via http://localhost:5000.
+________________________________________
+# 3. How to Use
+•	Web Interface:
+o	Text Input:
+1.	Click the "Text Input" button.
+2.	Enter your text and click "Submit."
+o	Voice Input:
+1.	Click the "Voice Input" button.
+2.	Start speaking, then click "Stop Recording."
+o	Result:
+	If suspicious activity is detected: A warning message is displayed, and the audio file is saved.
+•	API Usage Examples:
+o	Text Analysis: Send a POST request with text data to the /process_text endpoint.
+o	Voice Analysis: Upload an audio file to the /process_voice endpoint.
+•	Viewing Warning Messages: Explains how warnings are displayed in the user interface when detected.
+________________________________________
+# 4. Technical Overview
+•	Architecture:
+o	Frontend:
+	Built using HTML, CSS, and JavaScript.
+	Supports voice recording and text input.
+o	Backend:
+	Flask server providing REST APIs.
+	Processes voice data and analyzes text.
+o	Machine & Deep Learning:
+	Converts voice data into text using Google Speech-to-Text API.
+	Analyzes text and understands context using the OpenAI GPT model.
+•	Process Flow:
+1.	Users input voice or text data.
+2.	The Flask server processes the input.
+3.	Analysis results are returned to the user.
+4.	Warning audio is played if necessary.
+________________________________________
+# 5. API Reference
+•	Endpoints:
+o	/process_text: Analyzes text data.
+	Request Format: Json { "user_message": "text" }
+	Response Format: Json { "modelOutput": "analysis result", "audioBlob": "warning message audio data" }
+o	/process_voice: Analyzes voice data.
+	Request Format: Audio file (FormData).
+	Response Format: Json { "convertedText": "converted text", "modelOutput": "analysis result", "audioBlob": "audio data" }
+________________________________________
+# 6. Configuration Guide
+•	Environment Variables:
+o	GOOGLE_APPLICATION_CREDENTIALS: Path to the Google Cloud JSON credential file.
+o	OPENAI_API_KEY: OpenAI API key.
+•	Default Settings:
+o	Store default configurations in config.py or .env files.
+•	Customization:
+o	Update Keyword List: Modify the machine learning model to include new keywords for detection.
+o	Add new keywords in app.py.
+o	UI Theme: Customize CSS files to modify the user interface.
+o	Change Google STT language settings (e.g., ko-KR to other language codes).
+________________________________________
+# 7. Maintenance and Troubleshooting
+•	Routine Maintenance:
+o	Update dependencies periodically:
+pip install --upgrade -r requirements.txt
+o	Monitor server logs for any issues.
+•	Common Issues and Solutions:
+o	Issue: "Audio file processing failed."
+	Solution: Verify that FFmpeg is installed and correctly configured.
+o	Issue: "API response delay."
+	Solution: Check the connection to OpenAI and Google Cloud services.
+•	Server Debugging:
+o	Enable Flask debug mode: app.run(debug=True).
+________________________________________
+# 8. Contribution Guidelines
+•	Code Contribution Process:
+o	Fork the GitHub repository and create a new branch.
+o	Commit changes and create a Pull Request (PR).
+•	Coding Standards:
+o	Adhere to PEP 8 coding standards.
+o	Use lowercase with underscores for function names.
+•	Testing:
+o	Include appropriate unit tests for new features.
+•	Documentation:
+o	Provide detailed comments and explanations in the code.
+________________________________________
+# 9. FAQ
+•	Q1: "What technologies does PhishGuard use?"
+o	A1: "It uses Google Speech-to-Text API and OpenAI GPT models to analyze voice data in real-time."
+•	Q2: "Is this program free?"
+o	A2: "The project itself is free, but additional costs may arise from using Google Cloud and OpenAI APIs."
+•	Q3: "How accurate is voice phishing detection?"
+o	A3: "Accuracy depends on the quality of training data and Google STT, currently achieving over 90% accuracy."
+•	Q4: "Is my data safe?"
+o	A4: "All data is deleted immediately after analysis."
+•	Q5: "What data is stored?"
+o	A5: "User voice data is deleted post-analysis, and no additional data is stored."
+________________________________________
+# 10. Release Notes
+•	v1.0.0 (Initial Release):
+o	Added voice and text analysis features.
+o	Implemented real-time warning system.
+•	v1.1.0:
+o	Improved text input interface.
+o	Optimized keyword detection algorithms.
+•	v2.0.0:
+o	Updated UI and added multilingual support.
+o	Enabled user-defined keyword settings.
+

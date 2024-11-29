@@ -1,7 +1,7 @@
 How to Use
 ==========
 
-**Web Interface**:
+**Web Interface**:\
 
 - **Text Input**:
   1. Click the "Text Input" button.

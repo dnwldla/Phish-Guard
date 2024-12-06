@@ -3,19 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Interview</title>
-    <link rel="stylesheet" href="static/style.css">
+    <title>PhishGuard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/style.css?v=10"> <!-- 캐싱 방지 -->
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="static/image1.png" alt="Logo" class="logo">
-        </header>
-        <main>
-            <h1>보이스피싱이 의심되시나요?</h1>
+    <!-- Header -->
+    <header>
+        <!-- Top Bar -->
+        <div class="header-top">
+            <ul class="top-links">
+                <li><a href="https://cloud.google.com/speech-to-text/v2/docs/reference/rest?hl=ko" target="_blank">Open API</a></li>
+                <li><a href="https://www.yna.co.kr/view/AKR20241205152300017?input=1195m" target="_blank">Newsletter</a></li>
+                <li><a href="https://www.fss.or.kr/fss/main/sub1voice.do?menuNo=200012" target="_blank">Related Sites</a></li>
+            </ul>
+            <div class="search-container">
+                <input type="text" placeholder="Search here..." class="search-input">
+                <button class="search-button">🔍</button>
+            </div>
+            <div class="language-options">
+                <a href="#korean" class="language-link">
+                    <span class="language-icon">🌐</span> Korean
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <div class="header-main">
+            <div class="logo-title">
+                <img src="static/logo.png" alt="PhishGuard Logo" class="logo-image">
+                <h1>PhishGuard</h1>
+            </div>
+            <nav class="primary-nav">
+                <ul class="main-links">
+                    <li><a href="#supervision">Supervision</a></li>
+                    <li><a href="#laws">Laws & Regulations</a></li>
+                    <li><a href="#statistics">Phishing Statistics</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#about-pg">About PG</a></li>
+                </ul>
+                
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <h1>Do you suspect voice phishing?</h1>
             <div class="button-container">
-                <button id="text-button">Text Input</button>
-                <button id="voice-button">Voice Input</button>
+                <button id="text-button" onclick="toggleTextInput()">Text Input</button>
+                <button id="voice-button" onclick="toggleVoiceInput()">Voice Input</button>
             </div>
             <div id="text-input-div" class="input-div" style="display: none;">
                 <input type="text" id="user-text-input" placeholder="Enter text">
@@ -26,8 +64,21 @@
                 <button onclick="stopVoiceRecording()">Stop Recording</button>
             </div>
             <div class="chat-container" id="chat-container"></div>
-        </main>
-    </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>05006 서울특별시 광진구 능동로 209 (군자동) 세종대학교</p>
+            <p>COPYRIGHT 2024 SEJONG UNIVERSITY. ALL RIGHTS RESERVED.</p>
+            <p>20011800 임지우 / 22011860 정규원 / 22011868 지예람 / 22011881 장보근</p>
+            <a href="https://github.com/dnwldla/Phish-Guard.git" target="_blank" class="github-link">
+                Visit our GitHub OSS Project
+            </a>
+        </div>
+    </footer>
+
     <script src="static/script.js"></script>
 </body>
 </html>

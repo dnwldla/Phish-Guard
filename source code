@@ -1,0 +1,22 @@
+
+PhishGuard/
+│
+├── src/                            # 프로젝트 소스 코드 디렉터리
+│   ├── app.py                      # Flask 서버 애플리케이션 메인 파일
+│   ├── assistant.py                # OpenAI API를 다루는 보조 파일
+│   ├── templates/                  # HTML 파일 디렉터리
+│   │   └── index.html              # 홈페이지 메인 HTML
+│   ├── static/                     # 정적 파일 디렉터리
+│   │   ├── style.css               # CSS 스타일 파일
+│   │   └── script.js               # 자바스크립트 파일
+│   ├── requirements.txt            # Python 의존성 패키지 리스트
+│   ├── .env                        # 환경 변수 파일 (API 키 저장)
+│
+├── docs/                           # 프로젝트 문서 디렉터리
+│   ├── README.md                   # 프로젝트 개요 및 사용 지침
+│   ├── INSTALL.md                  # 설치 및 실행 지침
+│   ├── USAGE.md                    # 사용법 및 주요 기능 설명
+│
+├── LICENSE                         # 프로젝트 라이선스 파일
+├── .gitignore                      # Git에서 제외할 파일 목록
+└── README.md                       # GitHub 리포지토리 개요 파일
